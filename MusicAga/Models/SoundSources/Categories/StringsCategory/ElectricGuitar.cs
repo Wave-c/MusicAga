@@ -17,6 +17,8 @@ namespace MusicAga.Models.SoundSources.Categories.StringsCategory
             Tremolo = tremolo;
         }
 
+        public ElectricGuitar() : base("", "", "", "", 0, "", 0, "", "") { }
+
         public string Neck { get; set; }
         public uint Frets { get; set; }
         public uint ScaleMM { get; set; }
@@ -24,7 +26,7 @@ namespace MusicAga.Models.SoundSources.Categories.StringsCategory
 
         public override string ToString()
         {
-            return "Electro guitar: " + base.ToString() + Neck + " " + Frets + " " + ScaleMM + " " + Tremolo + " " + Body + " " + Fretbboard + "  " + SourceType + " " + PickupType;
+            return "Electro guitar: " + base.ToString() + " " + Neck + " " + Frets + " " + ScaleMM + " " + Tremolo + " " + Body + " " + Fretbboard + "  " + SourceType + " " + PickupType;
         }  
 
     }

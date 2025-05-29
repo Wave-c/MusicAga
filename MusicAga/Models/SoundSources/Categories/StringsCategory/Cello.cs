@@ -21,7 +21,7 @@ namespace MusicAga.Models.SoundSources.Categories.StringsCategory
 
         public override string ToString()
         {
-            return "Cello: " + base.ToString() + MassiveTop + " " + HousseInclude + " " + IncludeBow + " " + Body + " " + Fretbboard + " " + SourceType + " " + PickupType;
+            return "Cello: " + base.ToString() + " " + MassiveTop + " " + HousseInclude + " " + IncludeBow + " " + Body + " " + Fretbboard + " " + SourceType + " " + PickupType;
         } 
     }
 }

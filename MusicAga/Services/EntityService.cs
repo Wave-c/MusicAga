@@ -44,14 +44,36 @@ namespace MusicAga.Services
             }
         }
 
-        public void Delete()
+        public void DeleteById(Guid id)
         {
-
-        }
-
-        public void Update()
-        {
-
+            var deletedEntity = GetById(id);
+            switch (deletedEntity.Type)
+            {
+                case "ElectricGuitar":
+                    AppDbContext.GetContext().electricGuitars.Remove((ElectricGuitar)deletedEntity);
+                    break;
+                case "Cello":
+                    AppDbContext.GetContext().cellos.Remove((Cello)deletedEntity);
+                    break;
+                case "Violin":
+                    AppDbContext.GetContext().violins.Remove((Violin)deletedEntity);
+                    break;
+                case "Mixer":
+                    AppDbContext.GetContext().mixers.Remove((Mixer)deletedEntity);
+                    break;
+                case "AudioInterface":
+                    AppDbContext.GetContext().audioInterfaces.Remove((AudioInterface)deletedEntity);
+                    break;
+                case "Accessory":
+                    AppDbContext.GetContext().accessories.Remove((Accessory)deletedEntity);
+                    break;
+                case "Headphone":
+                    AppDbContext.GetContext().headphones.Remove((Headphone)deletedEntity);
+                    break;
+                case "Microphone":
+                    AppDbContext.GetContext().microphones.Remove((Microphone)deletedEntity);
+                    break;
+            }
         }
 
         public List<AudioDevice> GetAll()

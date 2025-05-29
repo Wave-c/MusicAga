@@ -22,7 +22,7 @@ namespace MusicAga.Models.Accessories
 
         public override string ToString()
         {
-            return "Accessory: " + base.ToString() + Material + " " + AccessoryType;
+            return "Accessory: " + base.ToString() + " " + Material + " " + AccessoryType;
         }
     }
 }

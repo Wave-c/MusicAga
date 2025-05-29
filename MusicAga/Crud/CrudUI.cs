@@ -16,159 +16,204 @@ namespace MusicAga.Crud
 	{
 		private EntityService _entityService = new EntityService();
 
+        private void printCategory(short userChoice)
+        {
+            switch (userChoice)
+            {
+                case 1:
+                    foreach (var e in AppDbContext.GetContext().electricGuitars) { Console.WriteLine(e.ToString()); }
+                    break;
+                case 2:
+                    foreach (var e in AppDbContext.GetContext().cellos) { Console.WriteLine(e.ToString()); }
+                    break;
+                case 3:
+                    foreach (var e in AppDbContext.GetContext().violins) { Console.WriteLine(e.ToString()); }
+                    break;
+                case 4:
+                    foreach (var e in AppDbContext.GetContext().mixers) { Console.WriteLine(e.ToString()); }
+                    break;
+                case 5:
+                    foreach (var e in AppDbContext.GetContext().audioInterfaces) { Console.WriteLine(e.ToString()); }
+                    break;
+                case 6:
+                    foreach (var e in AppDbContext.GetContext().accessories) { Console.WriteLine(e.ToString()); }
+                    break;
+                case 7:
+                    foreach (var e in AppDbContext.GetContext().headphones) { Console.WriteLine(e.ToString()); }
+                    break;
+                case 8:
+                    foreach (var e in AppDbContext.GetContext().microphones) { Console.WriteLine(e.ToString()); }
+                    break;
+                default:
+                    return;
+            }
+        }
+
 		public void Create()
 		{
-			string body; string fretbboard; string pickupType;
+            while (true)
+            {
+                Console.Clear();
+                try
+                {
+                    string body; string fretbboard; string pickupType;
 
-			Console.WriteLine("Enter model name: ");
-			string userSubjectName = Console.ReadLine();
+                    Console.WriteLine("Enter model name: ");
+                    string userSubjectName = Console.ReadLine();
 
-			Console.WriteLine("Enter model brand: ");
-			string userSubjectBrand = Console.ReadLine();
+                    Console.WriteLine("Enter model brand: ");
+                    string userSubjectBrand = Console.ReadLine();
 
-			Console.WriteLine("Enter model price: ");
-			decimal userSubjectPrice = Convert.ToDecimal(Console.ReadLine());
+                    Console.WriteLine("Enter model price: ");
+                    decimal userSubjectPrice = Convert.ToDecimal(Console.ReadLine());
 
-			Console.WriteLine("Enter year of model issue: ");
-			int userSubjectCreationYear = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter year of model issue: ");
+                    int userSubjectCreationYear = Convert.ToInt32(Console.ReadLine());
 
-			Console.WriteLine("Enter type: ");
-			Console.WriteLine("1. Electro guitar\n2. Cello\n3. Violin\n4. Mixer\n5. Audio interface\n6. Accesories\n7. Headphones\n8. Microphones\n");
-			int userSubjectType = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter type: ");
+                    Console.WriteLine("1. Electro guitar\n2. Cello\n3. Violin\n4. Mixer\n5. Audio interface\n6. Accesories\n7. Headphones\n8. Microphones\n");
+                    int userSubjectType = Convert.ToInt32(Console.ReadLine());
 
-			switch (userSubjectType)
-			{
-				case 1:
-					Console.WriteLine("Enter neck type: ");
-					string neckType = Console.ReadLine();
+                    switch (userSubjectType)
+                    {
+                        case 1:
+                            Console.WriteLine("Enter neck type: ");
+                            string neckType = Console.ReadLine();
 
-					Console.WriteLine("Enter frets count: ");
-					uint fretsCount = Convert.ToUInt32(Console.ReadLine());
+                            Console.WriteLine("Enter frets count: ");
+                            uint fretsCount = Convert.ToUInt32(Console.ReadLine());
 
-					Console.WriteLine("Enter pickup system type: ");
-					string pickupSystemType = Console.ReadLine();
+                            Console.WriteLine("Enter pickup system type: ");
+                            string pickupSystemType = Console.ReadLine();
 
-					Console.WriteLine("Enter scale: ");
-					uint scale = Convert.ToUInt32(Console.ReadLine());
+                            Console.WriteLine("Enter scale: ");
+                            uint scale = Convert.ToUInt32(Console.ReadLine());
 
-					Console.WriteLine("Enter tremolo type: ");
-					string tremoloType = Console.ReadLine();
+                            Console.WriteLine("Enter tremolo type: ");
+                            string tremoloType = Console.ReadLine();
 
-					Console.WriteLine("Enter body material: ");
-					body = Console.ReadLine();
+                            Console.WriteLine("Enter body material: ");
+                            body = Console.ReadLine();
 
-					Console.WriteLine("Enter fretbboard type: ");
-					fretbboard = Console.ReadLine();
+                            Console.WriteLine("Enter fretbboard type: ");
+                            fretbboard = Console.ReadLine();
 
-					Console.WriteLine("Enter pickup type: ");
-					pickupType = Console.ReadLine();
+                            Console.WriteLine("Enter pickup type: ");
+                            pickupType = Console.ReadLine();
 
-					_entityService.Add(new ElectricGuitar(neckType, fretsCount, scale, tremoloType, body, fretbboard, userSubjectName, userSubjectBrand, userSubjectPrice, "ElectricGuitar", userSubjectCreationYear, pickupSystemType));
-					break;
+                            _entityService.Add(new ElectricGuitar(neckType, fretsCount, scale, tremoloType, body, fretbboard, userSubjectName, userSubjectBrand, userSubjectPrice, "ElectricGuitar", userSubjectCreationYear, pickupSystemType));
+                            return;
 
-				case 2:
-					Console.WriteLine("Enter body material: ");
-					body = Console.ReadLine();
+                        case 2:
+                            Console.WriteLine("Enter body material: ");
+                            body = Console.ReadLine();
 
-					Console.WriteLine("Enter fretbboard type: ");
-					fretbboard = Console.ReadLine();
+                            Console.WriteLine("Enter fretbboard type: ");
+                            fretbboard = Console.ReadLine();
 
-					Console.WriteLine("Enter pickup type: ");
-					pickupType = Console.ReadLine();
+                            Console.WriteLine("Enter pickup type: ");
+                            pickupType = Console.ReadLine();
 
-					Console.WriteLine("Enter massive top presence status: ");
-					bool massiveTopPresence = Convert.ToBoolean(Console.ReadLine());
+                            Console.WriteLine("Enter massive top presence status: ");
+                            bool massiveTopPresence = Convert.ToBoolean(Console.ReadLine());
 
-					Console.WriteLine("Enter housse presence status: ");
-					bool houssePresence = Convert.ToBoolean(Console.ReadLine());
+                            Console.WriteLine("Enter housse presence status: ");
+                            bool houssePresence = Convert.ToBoolean(Console.ReadLine());
 
-					Console.WriteLine("Enter bow presence status: ");
-					bool celloBowPresence = Convert.ToBoolean(Console.ReadLine());
+                            Console.WriteLine("Enter bow presence status: ");
+                            bool celloBowPresence = Convert.ToBoolean(Console.ReadLine());
 
-					_entityService.Add(new Cello(massiveTopPresence, houssePresence, celloBowPresence, body, fretbboard, userSubjectName, userSubjectBrand, userSubjectPrice, "Cello", userSubjectCreationYear, pickupType));
-					break;
+                            _entityService.Add(new Cello(massiveTopPresence, houssePresence, celloBowPresence, body, fretbboard, userSubjectName, userSubjectBrand, userSubjectPrice, "Cello", userSubjectCreationYear, pickupType));
+                            return;
 
-				case 3:
-					Console.WriteLine("Enter body material: ");
-					body = Console.ReadLine();
+                        case 3:
+                            Console.WriteLine("Enter body material: ");
+                            body = Console.ReadLine();
 
-					Console.WriteLine("Enter fretbboard type: ");
-					fretbboard = Console.ReadLine();
+                            Console.WriteLine("Enter fretbboard type: ");
+                            fretbboard = Console.ReadLine();
 
-					Console.WriteLine("Enter pickup type: ");
-					pickupType = Console.ReadLine();
+                            Console.WriteLine("Enter pickup type: ");
+                            pickupType = Console.ReadLine();
 
-					Console.WriteLine("Enter bow presence status: ");
-					bool violinBowPresence = Convert.ToBoolean(Console.ReadLine());
+                            Console.WriteLine("Enter bow presence status: ");
+                            bool violinBowPresence = Convert.ToBoolean(Console.ReadLine());
 
-					Console.WriteLine("Enter tunners presence status: ");
-					bool fineTunnersPresence = Convert.ToBoolean(Console.ReadLine());
+                            Console.WriteLine("Enter tunners presence status: ");
+                            bool fineTunnersPresence = Convert.ToBoolean(Console.ReadLine());
 
-					Console.WriteLine("Enter flamed back presence status: ");
-					bool flamedBackPresence = Convert.ToBoolean(Console.ReadLine());
+                            Console.WriteLine("Enter flamed back presence status: ");
+                            bool flamedBackPresence = Convert.ToBoolean(Console.ReadLine());
 
-					Console.WriteLine("Enter tuning screw for Estring presence status: ");
-					bool fineTuningScrewForEStringPresence = Convert.ToBoolean(Console.ReadLine());
+                            Console.WriteLine("Enter tuning screw for Estring presence status: ");
+                            bool fineTuningScrewForEStringPresence = Convert.ToBoolean(Console.ReadLine());
 
-					_entityService.Add(new Violin(violinBowPresence, fineTunnersPresence, flamedBackPresence, fineTuningScrewForEStringPresence, body, fretbboard, userSubjectName, userSubjectBrand, userSubjectPrice, "Violin", userSubjectCreationYear, pickupType));
-					break;
+                            _entityService.Add(new Violin(violinBowPresence, fineTunnersPresence, flamedBackPresence, fineTuningScrewForEStringPresence, body, fretbboard, userSubjectName, userSubjectBrand, userSubjectPrice, "Violin", userSubjectCreationYear, pickupType));
+                            return;
 
-				case 4:
-					Console.WriteLine("Enter channels count: ");
-					int channelsCount = Convert.ToInt32(Console.ReadLine());
+                        case 4:
+                            Console.WriteLine("Enter channels count: ");
+                            int channelsCount = Convert.ToInt32(Console.ReadLine());
 
-					Console.WriteLine("Enter effects presence status: ");
-					bool effectsPresence = Convert.ToBoolean(Console.ReadLine());
+                            Console.WriteLine("Enter effects presence status: ");
+                            bool effectsPresence = Convert.ToBoolean(Console.ReadLine());
 
-					_entityService.Add(new Mixer(userSubjectName, userSubjectBrand, userSubjectPrice, "Mixer", userSubjectCreationYear, channelsCount, effectsPresence));
-					break;
+                            _entityService.Add(new Mixer(userSubjectName, userSubjectBrand, userSubjectPrice, "Mixer", userSubjectCreationYear, channelsCount, effectsPresence));
+                            return;
 
-				case 5:
-					Console.WriteLine("Enter input channels count: ");
-					int inputChannelsCount = Convert.ToInt32(Console.ReadLine());
+                        case 5:
+                            Console.WriteLine("Enter input channels count: ");
+                            int inputChannelsCount = Convert.ToInt32(Console.ReadLine());
 
-					Console.WriteLine("Enter output channels count: ");
-					int outputChannelsCount = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter output channels count: ");
+                            int outputChannelsCount = Convert.ToInt32(Console.ReadLine());
 
-					Console.WriteLine("Enter connectivity type: ");
-					string connectivityType = Console.ReadLine();
+                            Console.WriteLine("Enter connectivity type: ");
+                            string connectivityType = Console.ReadLine();
 
-					_entityService.Add(new AudioInterface(userSubjectName, userSubjectBrand, userSubjectPrice, "AudioInterface", userSubjectCreationYear, inputChannelsCount, outputChannelsCount, connectivityType));
-					break;
+                            _entityService.Add(new AudioInterface(userSubjectName, userSubjectBrand, userSubjectPrice, "AudioInterface", userSubjectCreationYear, inputChannelsCount, outputChannelsCount, connectivityType));
+                            return;
 
-				case 6:
-					Console.WriteLine("Enter accessory type: ");
-					string typeOfAccessory = Console.ReadLine();
+                        case 6:
+                            Console.WriteLine("Enter accessory type: ");
+                            string typeOfAccessory = Console.ReadLine();
 
-					Console.WriteLine("Enter material type: ");
-					string materialType = Console.ReadLine();
+                            Console.WriteLine("Enter material type: ");
+                            string materialType = Console.ReadLine();
 
-					_entityService.Add(new Accessory(userSubjectName, userSubjectBrand, userSubjectPrice, "Accessory", userSubjectCreationYear, materialType, typeOfAccessory));
-					break;
+                            _entityService.Add(new Accessory(userSubjectName, userSubjectBrand, userSubjectPrice, "Accessory", userSubjectCreationYear, materialType, typeOfAccessory));
+                            return;
 
-				case 7:
-					Console.WriteLine("Enterheadphones type: ");
-					string headphonesType = Console.ReadLine();
+                        case 7:
+                            Console.WriteLine("Enterheadphones type: ");
+                            string headphonesType = Console.ReadLine();
 
-					Console.WriteLine("Enter impedance type: ");
-					string impedanceType = Console.ReadLine();
+                            Console.WriteLine("Enter impedance type: ");
+                            string impedanceType = Console.ReadLine();
 
-					_entityService.Add(new Headphone(userSubjectName, userSubjectBrand, userSubjectPrice, "Headphone", userSubjectCreationYear, impedanceType, headphonesType));
-					break;
+                            _entityService.Add(new Headphone(userSubjectName, userSubjectBrand, userSubjectPrice, "Headphone", userSubjectCreationYear, impedanceType, headphonesType));
+                            return;
 
-				case 8:
-					Console.WriteLine("Enter frequency Response type: ");
-					string frequencyResponseType = Console.ReadLine();
+                        case 8:
+                            Console.WriteLine("Enter frequency Response type: ");
+                            string frequencyResponseType = Console.ReadLine();
 
-					Console.WriteLine("Enter polar Pattern type: ");
-					string polarPatternType = Console.ReadLine();
+                            Console.WriteLine("Enter polar Pattern type: ");
+                            string polarPatternType = Console.ReadLine();
 
-					_entityService.Add(new Microphone(userSubjectName, userSubjectBrand, userSubjectPrice, "Microphone", userSubjectCreationYear, frequencyResponseType, polarPatternType));
-					break;
+                            _entityService.Add(new Microphone(userSubjectName, userSubjectBrand, userSubjectPrice, "Microphone", userSubjectCreationYear, frequencyResponseType, polarPatternType));
+                            return;
 
-				default:
-					break;
-			}
+                        default:
+                            break;
+                    }
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine(e);
+                    continue;
+                }
+            }
 		}
 
 		public void Delete()
@@ -196,201 +241,38 @@ namespace MusicAga.Crud
             Console.Write("Category: ");
             Console.ResetColor();
 
-            int UserChoice = Convert.ToInt32(Console.ReadLine());
+            short userChoice = Convert.ToInt16(Console.ReadLine());
 
-            Console.Clear();
+            printCategory(userChoice);
+            
+
             Console.Write("Enter ID: ");
-            int ID = Convert.ToInt32(Console.ReadLine());
+            Guid id = new Guid(Console.ReadLine());
 
-            switch (UserChoice)
+            while (true)
             {
-                case 0:
-                    return;
+                Console.Clear();
+                Console.WriteLine($"Card ID: {id}\nName: {_entityService.GetById(id).Name}\n");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("Confirm deletion? [y/n] > ");
+                Console.ResetColor();
 
-                case 1:
-                    while (true)
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"Card ID: {ID}\nName: \n");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("Confirm deletion? [y/n] > ");
-                        Console.ResetColor();
+                string EnterDelete = Console.ReadLine();
+                Console.Clear();
 
-                        string EnterDelete = Console.ReadLine();
-                        Console.Clear();
-
-                        if (EnterDelete == "y")
-                        {
-                            break;
-                        }
-                        else if (EnterDelete == "n")
-                        {
-                            break;
-                        }
-                        break;
-                    }
+                if (EnterDelete == "y")
+                {
+                    _entityService.DeleteById(id);
                     break;
-                case 2:
-                    while (true)
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"Card ID: {ID}\nName: \n");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("Confirm deletion? [y/n] > ");
-                        Console.ResetColor();
-
-                        string EnterDelete = Console.ReadLine();
-                        Console.Clear();
-
-                        if (EnterDelete == "y")
-                        {
-                            break;
-                        }
-                        else if (EnterDelete == "n")
-                        {
-                            break;
-                        }
-                        break;
-                    }
+                }
+                else if (EnterDelete == "n")
+                {
                     break;
-                case 3:
-                    while (true)
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"Card ID: {ID}\nName: \n");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("Confirm deletion? [y/n] > ");
-                        Console.ResetColor();
-
-                        string EnterDelete = Console.ReadLine();
-                        Console.Clear();
-
-                        if (EnterDelete == "y")
-                        {
-                            break;
-                        }
-                        else if (EnterDelete == "n")
-                        {
-                            break;
-                        }
-                        break;
-                    }
-                    break;
-                case 4:
-                    while (true)
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"Card ID: {ID}\nName: \n");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("Confirm deletion? [y/n] > ");
-                        Console.ResetColor();
-
-                        string EnterDelete = Console.ReadLine();
-                        Console.Clear();
-
-                        if (EnterDelete == "y")
-                        {
-                            break;
-                        }
-                        else if (EnterDelete == "n")
-                        {
-                            break;
-                        }
-                        break;
-                    }
-                    break;
-                case 5:
-                    while (true)
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"Card ID: {ID}\nName: \n");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("Confirm deletion? [y/n] > ");
-                        Console.ResetColor();
-
-                        string EnterDelete = Console.ReadLine();
-                        Console.Clear();
-
-                        if (EnterDelete == "y")
-                        {
-                            break;
-                        }
-                        else if (EnterDelete == "n")
-                        {
-                            break;
-                        }
-                        break;
-                    }
-                    break;
-                case 6:
-                    while (true)
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"Card ID: {ID}\nName: \n");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("Confirm deletion? [y/n] > ");
-                        Console.ResetColor();
-
-                        string EnterDelete = Console.ReadLine();
-                        Console.Clear();
-
-                        if (EnterDelete == "y")
-                        {
-                            break;
-                        }
-                        else if (EnterDelete == "n")
-                        {
-                            break;
-                        }
-                        break;
-                    }
-                    break;
-                case 7:
-                    while (true)
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"Card ID: {ID}\nName: \n");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("Confirm deletion? [y/n] > ");
-                        Console.ResetColor();
-
-                        string EnterDelete = Console.ReadLine();
-                        Console.Clear();
-
-                        if (EnterDelete == "y")
-                        {
-                            break;
-                        }
-                        else if (EnterDelete == "n")
-                        {
-                            break;
-                        }
-                        break;
-                    }
-                    break;
-                case 8:
-                    while (true)
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"Card ID: {ID}\nName: \n");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("Confirm deletion? [y/n] > ");
-                        Console.ResetColor();
-
-                        string EnterDelete = Console.ReadLine();
-                        Console.Clear();
-
-                        if (EnterDelete == "y")
-                        {
-                            break;
-                        }
-                        else if (EnterDelete == "n")
-                        {
-                            break;
-                        }
-                        break;
-                    }
-                    break;
+                }
+                else
+                {
+                    continue;
+                }
             }
         }
 
@@ -464,26 +346,27 @@ namespace MusicAga.Crud
             Console.Write("Category: ");
             Console.ResetColor();
 
-            int UserChoice = Convert.ToInt32(Console.ReadLine());
+            short userChoice = Convert.ToInt16(Console.ReadLine());
 
-            Console.Clear();
+            printCategory(userChoice);
+
             Console.Write("Enter ID: ");
-            int ID = Convert.ToInt32(Console.ReadLine());
+            Guid id = new Guid(Console.ReadLine());
 
-            string ChangeAgain = "y";
+            string changeAgain = "y";
 
-
-            switch (UserChoice)
+            switch (userChoice)
             {
                 case 0:
                     return;
 
                 case 1:
-                    while (ChangeAgain != "n")
+                    var updatedElectricGuitar = (_entityService.GetById(id) as ElectricGuitar);
+                    while (changeAgain != "n")
                     {
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine("реализовать вывод айдишника и имя через $\"ID: {}, Name: {}\n");
+                        Console.WriteLine($"Card ID: {id}\nName: {updatedElectricGuitar.Name}\n");
                         Console.ResetColor();
 
                         Console.WriteLine("To change:\n");
@@ -501,11 +384,11 @@ namespace MusicAga.Crud
                         Console.ForegroundColor = ConsoleColor.DarkGreen;
                         Console.Write("Your action: ");
                         Console.ResetColor();
-                        int ChangeChoice = Convert.ToInt32(Console.ReadLine());
+                        short changeChoice = Convert.ToInt16(Console.ReadLine());
                         Console.WriteLine();
 
 
-                        switch (ChangeChoice)
+                        switch (changeChoice)
                         {
                             case 0:
                                 return;
@@ -513,33 +396,38 @@ namespace MusicAga.Crud
                             case 1:
                                 Console.Write("Enter new neck type: ");
                                 string neckType = Console.ReadLine();
+                                updatedElectricGuitar.Neck = neckType;
                                 break;
                             case 2:
                                 Console.Write("Enter new frets count: ");
                                 uint fretsCount = Convert.ToUInt32(Console.ReadLine());
+                                updatedElectricGuitar.Frets = fretsCount;
                                 break;
 
                             case 3:
                                 Console.Write("Enter new pickup system type: ");
                                 string pickupSystemType = Console.ReadLine();
+                                updatedElectricGuitar.PickupType = pickupSystemType;
                                 break;
 
                             case 4:
                                 Console.Write("Enter new scale: ");
                                 uint scale = Convert.ToUInt32(Console.ReadLine());
+                                updatedElectricGuitar.ScaleMM = scale;
                                 break;
 
                             case 5:
                                 Console.Write("Enter new tremolo type: ");
                                 string tremoloType = Console.ReadLine();
+                                updatedElectricGuitar.Tremolo = tremoloType;
                                 break;
                         }
                         while (true)
                         {
                             Console.Write("Wanna to change card again? [y/n] > ");
-                            ChangeAgain = Console.ReadLine();
+                            changeAgain = Console.ReadLine();
                             Console.Clear();
-                            if ((ChangeAgain == "y") || (ChangeAgain == "n"))
+                            if ((changeAgain == "y") || (changeAgain == "n"))
                             {
                                 break;
                             }
@@ -548,12 +436,12 @@ namespace MusicAga.Crud
                     break;
 
                 case 2:
-
-                    while (ChangeAgain != "n")
+                    var updatedCello = (_entityService.GetById(id) as Cello);
+                    while (changeAgain != "n")
                     {
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine("реализовать вывод айдишника и имя через $\"ID: {}, Name: {}\n");
+                        Console.WriteLine($"Card ID: {id}\nName: {updatedCello.Name}\n");
                         Console.ResetColor();
 
                         Console.WriteLine("To change:\n");
@@ -581,23 +469,26 @@ namespace MusicAga.Crud
                             case 1:
                                 Console.Write("Enter new massive top presence status: ");
                                 bool massiveTopPresence = Convert.ToBoolean(Console.ReadLine());
+                                updatedCello.MassiveTop = massiveTopPresence;
                                 break;
                             case 2:
                                 Console.Write("Enter new housse presence status: ");
                                 bool houssePresence = Convert.ToBoolean(Console.ReadLine());
+                                updatedCello.HousseInclude = houssePresence;
                                 break;
 
                             case 3:
                                 Console.Write("Enter new bow presence status: ");
                                 bool celloBowPresence = Convert.ToBoolean(Console.ReadLine());
+                                updatedCello.IncludeBow = celloBowPresence;
                                 break;
                         }
                         while (true)
                         {
                             Console.Write("Wanna to change card again? [y/n] > ");
-                            ChangeAgain = Console.ReadLine();
+                            changeAgain = Console.ReadLine();
                             Console.Clear();
-                            if ((ChangeAgain == "y") || (ChangeAgain == "n"))
+                            if ((changeAgain == "y") || (changeAgain == "n"))
                             {
                                 break;
                             }
@@ -606,11 +497,12 @@ namespace MusicAga.Crud
                     break;
 
                 case 3:
-                    while (ChangeAgain != "n")
+                    var updatedViolin = (_entityService.GetById(id) as Violin);
+                    while (changeAgain != "n")
                     {
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine("реализовать вывод айдишника и имя через $\"ID: {}, Name: {}\n");
+                        Console.WriteLine($"Card ID: {id}\nName: {updatedViolin.Name}\n");
                         Console.ResetColor();
 
                         Console.WriteLine("To change:\n");
@@ -639,28 +531,32 @@ namespace MusicAga.Crud
                             case 1:
                                 Console.Write("Enter new bow presence status: ");
                                 bool violinBowPresence = Convert.ToBoolean(Console.ReadLine());
+                                updatedViolin.IncludeBow = violinBowPresence;
                                 break;
                             case 2:
                                 Console.Write("Enter new tunners presence status: ");
                                 bool fineTunnersPresence = Convert.ToBoolean(Console.ReadLine());
+                                updatedViolin.FineTuners = fineTunnersPresence;
                                 break;
 
                             case 3:
                                 Console.Write("Enter new flamed back presence status: ");
                                 bool flamedBackPresence = Convert.ToBoolean(Console.ReadLine());
+                                updatedViolin.FlamedBack = flamedBackPresence;
                                 break;
 
                             case 4:
                                 Console.Write("Enter new tuning screw for Estring presence status: ");
                                 bool fineTuningScrewForEStringPresence = Convert.ToBoolean(Console.ReadLine());
+                                updatedViolin.FineTuningScrewForEString = fineTuningScrewForEStringPresence;
                                 break;
                         }
                         while (true)
                         {
                             Console.Write("Wanna to change card again? [y/n] > ");
-                            ChangeAgain = Console.ReadLine();
+                            changeAgain = Console.ReadLine();
                             Console.Clear();
-                            if ((ChangeAgain == "y") || (ChangeAgain == "n"))
+                            if ((changeAgain == "y") || (changeAgain == "n"))
                             {
                                 break;
                             }
@@ -669,11 +565,12 @@ namespace MusicAga.Crud
                     break;
 
                 case 4:
-                    while (ChangeAgain != "n")
+                    var updatedMixer = (_entityService.GetById(id) as Mixer);
+                    while (changeAgain != "n")
                     {
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine("реализовать вывод айдишника и имя через $\"ID: {}, Name: {}\n");
+                        Console.WriteLine($"Card ID: {id}\nName: {updatedMixer.Name}\n");
                         Console.ResetColor();
 
                         Console.WriteLine("To change:\n");
@@ -700,18 +597,20 @@ namespace MusicAga.Crud
                             case 1:
                                 Console.Write("Enter new channels count: ");
                                 int channelsCount = Convert.ToInt32(Console.ReadLine());
+                                updatedMixer.Channels = channelsCount;
                                 break;
                             case 2:
                                 Console.Write("Enter new effects presence status: ");
                                 bool effectsPresence = Convert.ToBoolean(Console.ReadLine());
+                                updatedMixer.HasEffects = effectsPresence;
                                 break;
                         }
                         while (true)
                         {
                             Console.Write("Wanna to change card again? [y/n] > ");
-                            ChangeAgain = Console.ReadLine();
+                            changeAgain = Console.ReadLine();
                             Console.Clear();
-                            if ((ChangeAgain == "y") || (ChangeAgain == "n"))
+                            if ((changeAgain == "y") || (changeAgain == "n"))
                             {
                                 break;
                             }
@@ -720,11 +619,12 @@ namespace MusicAga.Crud
                     break;
 
                 case 5:
-                    while (ChangeAgain != "n")
+                    var updatedAudioInterface = (_entityService.GetById(id) as AudioInterface);
+                    while (changeAgain != "n")
                     {
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine("реализовать вывод айдишника и имя через $\"ID: {}, Name: {}\n");
+                        Console.WriteLine($"Card ID: {id}\nName: {updatedAudioInterface.Name}\n");
                         Console.ResetColor();
 
                         Console.WriteLine("To change:\n");
@@ -752,23 +652,26 @@ namespace MusicAga.Crud
                             case 1:
                                 Console.Write("Enter new input channels count: ");
                                 int inputChannelsCount = Convert.ToInt32(Console.ReadLine());
+                                updatedAudioInterface.InputChannels = inputChannelsCount;
                                 break;
                             case 2:
                                 Console.Write("Enter new output channels count: ");
                                 int outputChannelsCount = Convert.ToInt32(Console.ReadLine());
+                                updatedAudioInterface.OutputChannels = outputChannelsCount;
                                 break;
 
                             case 3:
                                 Console.Write("Enter new connectivity type: ");
                                 string connectivityType = Console.ReadLine();
+                                updatedAudioInterface.Connectivity = connectivityType;
                                 break;
                         }
                         while (true)
                         {
                             Console.Write("Wanna to change card again? [y/n] > ");
-                            ChangeAgain = Console.ReadLine();
+                            changeAgain = Console.ReadLine();
                             Console.Clear();
-                            if ((ChangeAgain == "y") || (ChangeAgain == "n"))
+                            if ((changeAgain == "y") || (changeAgain == "n"))
                             {
                                 break;
                             }
@@ -777,11 +680,12 @@ namespace MusicAga.Crud
                     break;
 
                 case 6:
-                    while (ChangeAgain != "n")
+                    var updatedAccessory = (_entityService.GetById(id) as Accessory);
+                    while (changeAgain != "n")
                     {
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine("реализовать вывод айдишника и имя через $\"ID: {}, Name: {}\n");
+                        Console.WriteLine($"Card ID: {id}\nName: {updatedAccessory.Name}\n");
                         Console.ResetColor();
 
                         Console.WriteLine("To change:\n");
@@ -808,18 +712,20 @@ namespace MusicAga.Crud
                             case 1:
                                 Console.Write("Enter new accessory type: ");
                                 string typeOfAccessory = Console.ReadLine();
+                                updatedAccessory.AccessoryType = typeOfAccessory;
                                 break;
                             case 2:
                                 Console.Write("Enter new material type: ");
                                 string materialType = Console.ReadLine();
+                                updatedAccessory.Material = materialType;
                                 break;
                         }
                         while (true)
                         {
                             Console.Write("Wanna to change card again? [y/n] > ");
-                            ChangeAgain = Console.ReadLine();
+                            changeAgain = Console.ReadLine();
                             Console.Clear();
-                            if ((ChangeAgain == "y") || (ChangeAgain == "n"))
+                            if ((changeAgain == "y") || (changeAgain == "n"))
                             {
                                 break;
                             }
@@ -828,11 +734,12 @@ namespace MusicAga.Crud
                     break;
 
                 case 7:
-                    while (ChangeAgain != "n")
+                    var updatedHeadphone = (_entityService.GetById(id) as Headphone);
+                    while (changeAgain != "n")
                     {
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine("реализовать вывод айдишника и имя через $\"ID: {}, Name: {}\n");
+                        Console.WriteLine($"Card ID: {id}\nName: {updatedHeadphone.Name}\n");
                         Console.ResetColor();
 
                         Console.WriteLine("To change:\n");
@@ -859,22 +766,20 @@ namespace MusicAga.Crud
                             case 1:
                                 Console.Write("Enter new headphones type: ");
                                 string headphonesType = Console.ReadLine();
+                                updatedHeadphone.HeadphoneType = headphonesType;
                                 break;
                             case 2:
                                 Console.Write("Enter new impedance type: ");
                                 string impedanceType = Console.ReadLine();
-                                break;
-
-                            case 3:
-
+                                updatedHeadphone.Impedance = impedanceType;
                                 break;
                         }
                         while (true)
                         {
                             Console.Write("Wanna to change card again? [y/n] > ");
-                            ChangeAgain = Console.ReadLine();
+                            changeAgain = Console.ReadLine();
                             Console.Clear();
-                            if ((ChangeAgain == "y") || (ChangeAgain == "n"))
+                            if ((changeAgain == "y") || (changeAgain == "n"))
                             {
                                 break;
                             }
@@ -883,11 +788,12 @@ namespace MusicAga.Crud
                     break;
 
                 case 8:
-                    while (ChangeAgain != "n")
+                    var updatedMicrophone = (_entityService.GetById(id) as Microphone);
+                    while (changeAgain != "n")
                     {
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine("реализовать вывод айдишника и имя через $\"ID: {}, Name: {}\n");
+                        Console.WriteLine($"Card ID: {id}\nName: {updatedMicrophone.Name}\n");
                         Console.ResetColor();
 
                         Console.WriteLine("To change:\n");
@@ -914,18 +820,20 @@ namespace MusicAga.Crud
                             case 1:
                                 Console.Write("Enter new frequency Response type: ");
                                 string frequencyResponseType = Console.ReadLine();
+                                updatedMicrophone.FrequencyResponse = frequencyResponseType;
                                 break;
                             case 2:
                                 Console.Write("Enter new polar Pattern type: ");
                                 string polarPatternType = Console.ReadLine();
+                                updatedMicrophone.PolarPattern = polarPatternType;
                                 break;
                         }
                         while (true)
                         {
                             Console.Write("Wanna to change card again? [y/n] > ");
-                            ChangeAgain = Console.ReadLine();
+                            changeAgain = Console.ReadLine();
                             Console.Clear();
-                            if ((ChangeAgain == "y") || (ChangeAgain == "n"))
+                            if ((changeAgain == "y") || (changeAgain == "n"))
                             {
                                 break;
                             }

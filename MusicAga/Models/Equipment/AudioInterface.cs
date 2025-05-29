@@ -22,7 +22,7 @@ namespace MusicAga.Models.Equipment
 
         public override string ToString()
         {
-            return "AudioInterface: " + base.ToString() + InputChannels + " " + OutputChannels + " " + Connectivity;
+            return "AudioInterface: " + base.ToString() + " " + InputChannels + " " + OutputChannels + " " + Connectivity;
         }
     }
 }
