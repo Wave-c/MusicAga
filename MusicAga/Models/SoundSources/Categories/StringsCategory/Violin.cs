@@ -19,7 +19,5 @@ namespace MusicAga.Models.SoundSources.Categories.StringsCategory
             FlamedBack = flamedBack;
             FineTuningScrewForEString = fineTuningScreForEString;
         }
-
-        public Violin() { }
     }
 }

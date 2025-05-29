@@ -11,7 +11,6 @@ namespace MusicAga.Models
     {
         public string Name { get; set; }
         public string Brand { get; set; }
-        [Column(TypeName = "decimal(5, 2)")]
         public decimal Price { get; set; }
         public string Type { get; set; }
         public int Year { get; set; }
