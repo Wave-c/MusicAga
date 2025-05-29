@@ -27,7 +27,7 @@ namespace MusicAga.Crud
             string userSubjectBrand = Console.ReadLine();
 
             Console.WriteLine("Enter model price: ");
-            decimal userSubjectPrice = Convert.ToInt32(Console.ReadLine());
+            decimal userSubjectPrice = Convert.ToDecimal(Console.ReadLine());
 
             Console.WriteLine("Enter year of model issue: ");
             int userSubjectCreationYear = Convert.ToInt32(Console.ReadLine());

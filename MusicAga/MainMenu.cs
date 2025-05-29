@@ -1,4 +1,5 @@
 ﻿using MusicAga.Crud;
+using MusicAga.Models;
 using MusicAga.Services;
 
 class MainMenu 
@@ -41,6 +42,7 @@ class MainMenu
     {
         while (true)
         {
+            var a = AppDbContext.GetContext();
             ShowMainMenu();
             int choice = UserChoice();
 
