@@ -16,5 +16,10 @@ namespace MusicAga.Models.SoundSources.Categories
 
         public string Body { get; set; }
         public string Fretbboard { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        } 
     }
 }

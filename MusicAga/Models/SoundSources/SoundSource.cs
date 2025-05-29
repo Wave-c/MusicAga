@@ -17,5 +17,10 @@ namespace MusicAga.Models.SoundSources
             SourceType = sourceType;
             PickupType = pickupType;
         }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        } 
     }
 }

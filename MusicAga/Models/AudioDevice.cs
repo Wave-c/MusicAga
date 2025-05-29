@@ -29,7 +29,7 @@ namespace MusicAga.Models
 
         public override string ToString()
         {
-            return "Audio device: " + Name + " " + Brand + " " + Price + " " + Type + " " + Year;
+            return Name + " " + Brand + " " + Price + " " + Type + " " + Year + " " + Id;
         }  
     }
 }
