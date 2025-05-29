@@ -1,4 +1,7 @@
-﻿using MusicAga.Models;
+﻿using MusicAga;
+using MusicAga.Crud;
+using MusicAga.Models;
+using MusicAga.Services;
 
 class MainMenu 
 {
