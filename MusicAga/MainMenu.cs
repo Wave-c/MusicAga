@@ -1,4 +1,6 @@
-﻿class MainMenu 
+﻿using MusicAga.Models;
+
+class MainMenu 
 {
     static void ShowMainMenu()
     {
@@ -7,26 +9,30 @@
         Console.WriteLine("MUSICAL EQUIPMENT DATABASE\n");
         Console.ResetColor();
 
-        Console.WriteLine("1. Show all equipment");
-        Console.WriteLine("2. Create");
-        Console.WriteLine("3. Read");
-        Console.WriteLine("4. Update");
-        Console.WriteLine("5. Delete\n");
+        Console.WriteLine("1. Create");
+        Console.WriteLine("2. Read");
+        Console.WriteLine("3. Update");
+        Console.WriteLine("4. Delete\n");
 
+
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("0. Exit\n");
+        Console.ResetColor();
     }
 
     static int UserChoice()
     {
-
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.Write("Your action: ");
+        Console.ResetColor();
+
         while (true)
         {
-            if (int.TryParse(Console.ReadLine(), out int choice) && choice >= 0 && choice <= 5)
+            if (int.TryParse(Console.ReadLine(), out int choice) && choice >= 0 && choice <= 4)
                 return choice;
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("Error! Please enter a number from 0 to 5: ");
+            Console.Write("Error! Please enter a number from 0 to 4: ");
             Console.ResetColor();
         }
     }
@@ -46,21 +52,21 @@
                 //break;
 
                 case 1:
+                    CreateCards.CreateCard();
                     break;
 
                 case 2:
                     break;
 
                 case 3:
-                    //Update();
+                    UpdateCard.Update();
                     break;
 
                 case 4:
                     break;
 
-                case 5:
+                default:
                     break;
-
             }
         }
     }
