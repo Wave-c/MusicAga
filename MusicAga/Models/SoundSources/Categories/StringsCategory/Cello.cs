@@ -18,5 +18,10 @@ namespace MusicAga.Models.SoundSources.Categories.StringsCategory
             HousseInclude = housseInclude;
             IncludeBow = includeBow;
         }
+
+        public override string ToString()
+        {
+            return "Cello: " + MassiveTop + " " + HousseInclude + " " + IncludeBow;
+        } 
     }
 }

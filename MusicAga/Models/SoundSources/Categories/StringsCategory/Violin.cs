@@ -19,5 +19,12 @@ namespace MusicAga.Models.SoundSources.Categories.StringsCategory
             FlamedBack = flamedBack;
             FineTuningScrewForEString = fineTuningScreForEString;
         }
+
+        public Violin() { }
+
+        public override string ToString()
+        {
+            return "Violin: " + IncludeBow + " " + FineTuners + " " + FlamedBack + " " + FineTuningScrewForEString;
+        } 
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,5 +26,10 @@ namespace MusicAga.Models
         }
 
         public AudioDevice() { }
+
+        public override string ToString()
+        {
+            return "Audio device: " + Name + " " + Brand + " " + Price + " " + Type + " " + Year;
+        }  
     }
 }
