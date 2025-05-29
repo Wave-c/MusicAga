@@ -24,7 +24,7 @@ namespace MusicAga.Models.SoundSources.Categories.StringsCategory
 
         public override string ToString()
         {
-            return "Electro guitar: " + Neck + " " + Frets + " " + ScaleMM + " " + Tremolo + " " + Body + " " + Fretbboard + " " + SourceType + " " + PickupType;
+            return "Electro guitar: " + base.ToString() + Neck + " " + Frets + " " + ScaleMM + " " + Tremolo + " " + Body + " " + Fretbboard + "  " + SourceType + " " + PickupType;
         }  
 
     }
