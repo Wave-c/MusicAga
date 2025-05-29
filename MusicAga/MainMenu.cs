@@ -1,8 +1,10 @@
-﻿using MusicAga.Services;
+﻿using MusicAga.Crud;
+using MusicAga.Services;
 
 class MainMenu 
 {
     private static EntityService _entityService = new EntityService();
+    private static CrudUI _crudUI = new CrudUI();
 
     static void ShowMainMenu()
     {
@@ -11,11 +13,10 @@ class MainMenu
         Console.WriteLine("MUSICAL EQUIPMENT DATABASE\n");
         Console.ResetColor();
 
-        Console.WriteLine("1. Show all equipment");
-        Console.WriteLine("2. Create");
-        Console.WriteLine("3. Read");
-        Console.WriteLine("4. Update");
-        Console.WriteLine("5. Delete\n");
+        Console.WriteLine("1. Create");
+        Console.WriteLine("2. Read");
+        Console.WriteLine("3. Update");
+        Console.WriteLine("4. Delete\n");
 
         Console.WriteLine("0. Exit\n");
     }
@@ -49,22 +50,22 @@ class MainMenu
                     return;
 
                 case 1:
-                    _entityService.GetAll();
+                    _crudUI.Create();
                     break;
-
                 case 2:
-                    _entityService.Add();
+                    _crudUI.Read();
                     break;
 
                 case 3:
-                    //Update();
+                    _crudUI.Update();
                     break;
 
                 case 4:
-                    _entityService.Update();
+                    _crudUI.Delete();
                     break;
 
-                case 5:
+                default:
+                    Console.WriteLine("!!!");
                     break;
 
             }

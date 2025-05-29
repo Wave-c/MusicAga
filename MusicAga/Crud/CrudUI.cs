@@ -1,16 +1,18 @@
-using System;
-using MusicAga.Models.SoundSources.Categories.StringsCategory;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-
-namespace MusicAga.Models
+namespace MusicAga.Crud
 {
-    internal class CreateCards
+    internal class CrudUI : ICrudUI
     {
-        public void CreateCard()
+        public void Create()
         {
             Console.WriteLine("Enter model name: ");
             string userSubjectName = Console.ReadLine();
-            
+
             Console.WriteLine("Enter model brand: ");
             string userSubjectBrand = Console.ReadLine();
 
@@ -29,10 +31,10 @@ namespace MusicAga.Models
                 case 1:
                     Console.WriteLine("Enter neck type: ");
                     string neckType = Console.ReadLine();
-                    
+
                     Console.WriteLine("Enter frets count: ");
                     uint fretsCount = Convert.ToUInt32(Console.ReadLine());
-                    
+
                     Console.WriteLine("Enter pickup system type: ");
                     string pickupSystemType = Console.ReadLine();
 
@@ -43,7 +45,7 @@ namespace MusicAga.Models
                     string tremoloType = Console.ReadLine();
 
                     break;
-                    
+
                 case 2:
                     Console.WriteLine("Enter massive top presence status: ");
                     bool massiveTopPresence = Convert.ToBoolean(Console.ReadLine());
@@ -80,10 +82,10 @@ namespace MusicAga.Models
 
                     break;
 
-                case 5:          
+                case 5:
                     Console.WriteLine("Enter input channels count: ");
                     int inputChannelsCount = Convert.ToInt32(Console.ReadLine());
-                    
+
                     Console.WriteLine("Enter output channels count: ");
                     int outputChannelsCount = Convert.ToInt32(Console.ReadLine());
 
@@ -122,6 +124,32 @@ namespace MusicAga.Models
                 default:
                     break;
             }
+        }
+
+        public void Delete()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Read()
+        {
+            Console.WriteLine("Do you want to check the inner fileds of one of the classes?");
+            bool userChoice = Convert.ToBoolean(Console.ReadLine());
+            if (userChoice == true)
+            {
+                Console.WriteLine("Enter card id that you intrested in: ");
+                Guid userCardId = new Guid(Console.ReadLine());
+            }
+        }
+
+        public void Update()
+        {
+            Console.WriteLine("1. Аксессуары");
+            Console.WriteLine("2. Оборудование");
+            Console.WriteLine("3. Вывод-Ввод звука");
+            Console.WriteLine("4. Источники звука");
+
+            Console.WriteLine("Укажите нужную категорию карты: ");
         }
     }
 }
