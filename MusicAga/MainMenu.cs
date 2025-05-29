@@ -1,45 +1,38 @@
-﻿class MainMenu
+﻿class MainMenu 
 {
-    //static void Main()
-    //{
-    //    HandleMainMenu();
-
-    //}
-
     static void ShowMainMenu()
     {
         Console.Clear();
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("КАРТОТЕКА МУЗЫКАЛЬНОГО ОБОРУДОВАНИЯ\n");
+        Console.ForegroundColor = ConsoleColor.DarkCyan;
+        Console.WriteLine("MUSICAL EQUIPMENT DATABASE\n");
         Console.ResetColor();
 
-        Console.WriteLine("1. Показать все оборудование");
-        Console.WriteLine("2. Поиск по названию/бренду");
-        Console.WriteLine("3. Поиск по категории\n");
+        Console.WriteLine("1. Show all equipment");
+        Console.WriteLine("2. Create");
+        Console.WriteLine("3. Read");
+        Console.WriteLine("4. Update");
+        Console.WriteLine("5. Delete\n");
 
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("4. Добавить новое оборудование");
-        Console.WriteLine("5. Редактировать карточку");
-        Console.ResetColor();
-
-        Console.WriteLine("0. Выход\n");
-
+        Console.WriteLine("0. Exit\n");
     }
 
     static int UserChoice()
     {
 
-        Console.Write("Действие: ");
+        Console.Write("Your action: ");
         while (true)
         {
             if (int.TryParse(Console.ReadLine(), out int choice) && choice >= 0 && choice <= 5)
                 return choice;
 
-            Console.Write("Ошибка! Введите число от 0 до 5: ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("Error! Please enter a number from 0 to 5: ");
+            Console.ResetColor();
         }
     }
 
-    static void HandleMainMenu()
+
+    public static void HandleMainMenu()
     {
         while (true)
         {
@@ -59,9 +52,13 @@
                     break;
 
                 case 3:
+                    //Update();
                     break;
 
                 case 4:
+                    break;
+
+                case 5:
                     break;
 
             }
