@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MusicAga.Models
@@ -37,6 +38,7 @@ namespace MusicAga.Models
             headphones = new List<Headphone>();
             microphones = new List<Microphone>();
         }
+        [JsonConstructorAttribute]
         protected AppDbContext(List<ElectricGuitar> electricGuitars, List<Cello> cellos, List<Violin> violins, List<Mixer> mixers, List<AudioInterface> audioInterfaces, List<Accessory> accessories, List<Headphone> headphones, List<Microphone> microphones)
         {
             this.electricGuitars = electricGuitars;
@@ -70,7 +72,7 @@ namespace MusicAga.Models
             return instance;
         }
 
-        private void saveContext()
+        public void SaveContext()
         {
             File.WriteAllText("data.json", JsonSerializer.Serialize(instance));
         }
