@@ -1,40 +1,8 @@
-﻿class MainMenu 
+﻿using MusicAga.Services;
+
+class MainMenu 
 {
-    //    HandleMainMenu();
-
-    //}
-
-    //    HandleMainMenu();
-
-    //}
-
-    //    HandleMainMenu();
-
-    //}
-
-    //    HandleMainMenu();
-
-    //}
-
-    //    HandleMainMenu();
-
-    //}
-
-    //    HandleMainMenu();
-
-    //}
-
-    //    HandleMainMenu();
-
-    //}
-
-    //    HandleMainMenu();
-
-    //}
-
-    //    HandleMainMenu();
-
-    //}
+    private static EntityService _entityService = new EntityService();
 
     static void ShowMainMenu()
     {
