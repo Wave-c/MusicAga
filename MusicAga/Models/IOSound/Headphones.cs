@@ -19,5 +19,10 @@ namespace MusicAga.Models.IOSound
         }
 
         public Headphone() { }
+
+        public override string ToString()
+        {
+            return "Headphone: " + Impedance + " " + Type;
+        }
     }
 }

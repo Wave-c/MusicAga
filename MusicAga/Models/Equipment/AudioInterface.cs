@@ -19,5 +19,10 @@ namespace MusicAga.Models.Equipment
             OutputChannels = outputChannels;
             Connectivity = connectivity;
         }
+
+        public override string ToString()
+        {
+            return "AudioInterface: " + InputChannels + " " + OutputChannels + " " + Connectivity;
+        }
     }
 }

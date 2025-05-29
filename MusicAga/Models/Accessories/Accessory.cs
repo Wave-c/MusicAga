@@ -19,5 +19,10 @@ namespace MusicAga.Models.Accessories
         }
 
         public Accessory() { }
+
+        public override string ToString()
+        {
+            return "Accessory: " + Material + " " + AccessoryType;
+        }
     }
 }

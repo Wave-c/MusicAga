@@ -19,5 +19,10 @@ namespace MusicAga.Models.IOSound
         }
 
         public Microphone() { }
+
+        public override string ToString()
+        {
+            return "Microphone: " + FrequencyResponse + " " + PolarPattern;
+        }
     }
 }

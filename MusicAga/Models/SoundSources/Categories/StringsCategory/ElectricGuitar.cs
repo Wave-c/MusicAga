@@ -24,5 +24,10 @@ namespace MusicAga.Models.SoundSources.Categories.StringsCategory
         public uint ScaleMM { get; set; }
         public string Tremolo { get; set; }
 
+        public override string ToString()
+        {
+            return "Electro guitar: " + Neck + " " + Frets + " " + PickupSystem + " " + ScaleMM + " " + Tremolo;
+        }  
+
     }
 }

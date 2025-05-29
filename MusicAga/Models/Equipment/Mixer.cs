@@ -17,5 +17,10 @@ namespace MusicAga.Models.Equipment
             Channels = channels;
             HasEffects = hasEffects;
         }
+
+        public override string ToString()
+        {
+            return "Mixer: " + Channels + " " + HasEffects;
+        }
     }
 }
