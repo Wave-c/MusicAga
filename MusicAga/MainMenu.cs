@@ -1,7 +1,4 @@
-﻿using MusicAga;
-using MusicAga.Crud;
-using MusicAga.Models;
-using MusicAga.Services;
+﻿using MusicAga.Models;
 
 class MainMenu 
 {
@@ -21,10 +18,27 @@ class MainMenu
         Console.WriteLine("3. Update");
         Console.WriteLine("4. Delete\n");
 
-        Console.WriteLine("5. save");
-        Console.WriteLine("6. load");
 
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("0. Exit\n");
+        Console.ResetColor();
+    }
+
+    static int UserChoice()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.Write("Your action: ");
+        Console.ResetColor();
+
+        while (true)
+        {
+            if (int.TryParse(Console.ReadLine(), out int choice) && choice >= 0 && choice <= 4)
+                return choice;
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("Error! Please enter a number from 0 to 4: ");
+            Console.ResetColor();
+        }
     }
 
 
@@ -58,17 +72,7 @@ class MainMenu
                     _crudUI.Delete();
                     break;
 
-                case 5:
-                    AppDbContext.GetContext().SaveContext();
-                    break;
-                case 6:
-                    AppDbContext.LoadContext(_dataFactory.CreateContext("data.json"));
-                    break;
-
                 default:
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("Error! Please enter a number from 0 to 6: ");
-                    Console.ResetColor();
                     break;
 
             }
