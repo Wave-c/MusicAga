@@ -23,7 +23,7 @@ namespace MusicAga.Models.SoundSources.Categories.StringsCategory
 
         public override string ToString()
         {
-            return "Violin: " + IncludeBow + " " + FineTuners + " " + FlamedBack + " " + FineTuningScrewForEString;
+            return "Violin: " + IncludeBow + " " + FineTuners + " " + FlamedBack + " " + FineTuningScrewForEString + " " + Body + " " + Fretbboard + " " + SourceType + " " + PickupType;
         } 
     }
 }
