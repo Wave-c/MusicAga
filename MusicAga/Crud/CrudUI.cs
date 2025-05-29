@@ -178,6 +178,11 @@ namespace MusicAga.Crud
 
         public void Read()
         {
+            var all = _entityService.GetAll();
+            foreach (var entity in all)
+            {
+                Console.WriteLine(entity.ToString());
+            }
             Console.WriteLine("Do you want to check the inner fileds of one of the classes?");
             bool userChoice = Convert.ToBoolean(Console.ReadLine());
             if (userChoice == true)

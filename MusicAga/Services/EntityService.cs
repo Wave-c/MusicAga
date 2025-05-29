@@ -54,9 +54,20 @@ namespace MusicAga.Services
 
         }
 
-        public void GetAll()
+        public List<AudioDevice> GetAll()
         {
+            var context = AppDbContext.GetContext();
+            List<AudioDevice> result = new List<AudioDevice>();
+            result.AddRange(context.cellos); result.AddRange(context.violins); result.AddRange(context.electricGuitars); 
+            result.AddRange(context.mixers); result.AddRange(context.audioInterfaces); result.AddRange(context.accessories);
+            result.AddRange(context.headphones); result.AddRange(context.microphones);
 
+            return result;
+        }
+    
+        public void GetById<T>(Guid id)
+        {
+            Console.WriteLine(typeof(T));
         }
     }
 }
