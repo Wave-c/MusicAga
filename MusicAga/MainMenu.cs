@@ -63,6 +63,7 @@ class MainMenu
                     break;
 
                 case 4:
+                    DeleteCard.Delete();
                     break;
 
                 default:

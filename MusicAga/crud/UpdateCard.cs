@@ -36,7 +36,7 @@ class UpdateCard
         Console.Write("Category: ");
         Console.ResetColor();
 
-		int UserChoice = Convert.ToInt32(Console.ReadLine());
+		int UserChoice = Convert.ToInt32(Console.ReadLine());      
 
         Console.Clear();
 		Console.Write("Enter ID: ");
@@ -107,7 +107,7 @@ class UpdateCard
                             break;
                     }
 					while (true) {
-                        Console.Write("Wanna to change again? [y/n] > ");
+                        Console.Write("Wanna to change card again? [y/n] > ");
                         ChangeAgain = Console.ReadLine();
                         Console.Clear();
                         if ((ChangeAgain == "y") || (ChangeAgain == "n"))
@@ -165,7 +165,7 @@ class UpdateCard
                     }
                     while (true)
                     {
-                        Console.Write("Wanna to change again? [y/n] > ");
+                        Console.Write("Wanna to change card again? [y/n] > ");
                         ChangeAgain = Console.ReadLine();
                         Console.Clear();
                         if ((ChangeAgain == "y") || (ChangeAgain == "n"))
@@ -228,7 +228,7 @@ class UpdateCard
                     }
                     while (true)
                     {
-                        Console.Write("Wanna to change again? [y/n] > ");
+                        Console.Write("Wanna to change card again? [y/n] > ");
                         ChangeAgain = Console.ReadLine();
                         Console.Clear();
                         if ((ChangeAgain == "y") || (ChangeAgain == "n"))
@@ -279,7 +279,7 @@ class UpdateCard
                     }
                     while (true)
                     {
-                        Console.Write("Wanna to change again? [y/n] > ");
+                        Console.Write("Wanna to change card again? [y/n] > ");
                         ChangeAgain = Console.ReadLine();
                         Console.Clear();
                         if ((ChangeAgain == "y") || (ChangeAgain == "n"))
@@ -336,7 +336,7 @@ class UpdateCard
                     }
                     while (true)
                     {
-                        Console.Write("Wanna to change again? [y/n] > ");
+                        Console.Write("Wanna to change card again? [y/n] > ");
                         ChangeAgain = Console.ReadLine();
                         Console.Clear();
                         if ((ChangeAgain == "y") || (ChangeAgain == "n"))
@@ -387,7 +387,7 @@ class UpdateCard
                     }
                     while (true)
                     {
-                        Console.Write("Wanna to change again? [y/n] > ");
+                        Console.Write("Wanna to change card again? [y/n] > ");
                         ChangeAgain = Console.ReadLine();
                         Console.Clear();
                         if ((ChangeAgain == "y") || (ChangeAgain == "n"))
@@ -442,7 +442,7 @@ class UpdateCard
                     }
                     while (true)
                     {
-                        Console.Write("Wanna to change again? [y/n] > ");
+                        Console.Write("Wanna to change card again? [y/n] > ");
                         ChangeAgain = Console.ReadLine();
                         Console.Clear();
                         if ((ChangeAgain == "y") || (ChangeAgain == "n"))
@@ -493,7 +493,7 @@ class UpdateCard
                     }
                     while (true)
                     {
-                        Console.Write("Wanna to change again? [y/n] > ");
+                        Console.Write("Wanna to change card again? [y/n] > ");
                         ChangeAgain = Console.ReadLine();
                         Console.Clear();
                         if ((ChangeAgain == "y") || (ChangeAgain == "n"))
@@ -505,7 +505,7 @@ class UpdateCard
                 break;
 
 			default:
-				break;
+                break;
 		}
 	}
 }
