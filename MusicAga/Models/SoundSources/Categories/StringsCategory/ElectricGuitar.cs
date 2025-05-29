@@ -9,7 +9,7 @@ namespace MusicAga.Models.SoundSources.Categories.StringsCategory
 {
     internal class ElectricGuitar : Strings
     {
-        public ElectricGuitar(string neck, uint frets, string pickupSystem, uint scaleMM, string tremolo, string body, string fretbboard, string name, string brand, decimal price, string type, int year) : base(body, fretbboard, name, brand, price, type, year)
+        public ElectricGuitar(string neck, uint frets, string pickupSystem, uint scaleMM, string tremolo, string body, string fretbboard, string name, string brand, decimal price, string type, int year, string sourceType, string pickupType) : base(body, fretbboard, name, brand, price, type, year, sourceType, pickupType)
         {
             Neck = neck;
             Frets = frets;

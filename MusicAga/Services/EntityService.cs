@@ -8,5 +8,24 @@ namespace MusicAga.Services
 {
     internal class EntityService
     {
+        public void Add()
+        {
+
+        }
+
+        public void Delete()
+        {
+
+        }
+
+        public void Update()
+        {
+
+        }
+
+        public void GetAll()
+        {
+
+        }
     }
 }

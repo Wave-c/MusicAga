@@ -1,10 +1,8 @@
-﻿class MainMenu
-{
-    //static void Main()
-    //{
-    //    HandleMainMenu();
+﻿using MusicAga.Services;
 
-    //}
+class MainMenu
+{
+    private static EntityService _entityService = new EntityService();
 
     static void ShowMainMenu()
     {
@@ -13,22 +11,18 @@
         Console.WriteLine("КАРТОТЕКА МУЗЫКАЛЬНОГО ОБОРУДОВАНИЯ\n");
         Console.ResetColor();
 
-        Console.WriteLine("1. Показать все оборудование");
-        Console.WriteLine("2. Поиск по названию/бренду");
-        Console.WriteLine("3. Поиск по категории\n");
-
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("4. Добавить новое оборудование");
-        Console.WriteLine("5. Редактировать карточку");
-        Console.ResetColor();
+        Console.WriteLine("1. Показать все оборудование");
+        Console.WriteLine("2. Добавить оборудование");
+        Console.WriteLine("3. Удалить оборудование");
+        Console.WriteLine("4. Редактировать оборудование");
 
         Console.WriteLine("0. Выход\n");
-
+        Console.ResetColor();
     }
 
     static int UserChoice()
     {
-
         Console.Write("Действие: ");
         while (true)
         {
@@ -39,7 +33,7 @@
         }
     }
 
-    static void HandleMainMenu()
+    public static void HandleMainMenu()
     {
         while (true)
         {
@@ -50,18 +44,21 @@
             {
                 case 0:
                     return;
-                //break;
 
                 case 1:
+                    _entityService.GetAll();
                     break;
 
                 case 2:
+                    _entityService.Add();
                     break;
 
                 case 3:
+                    _entityService.Delete();
                     break;
 
                 case 4:
+                    _entityService.Update();
                     break;
 
             }

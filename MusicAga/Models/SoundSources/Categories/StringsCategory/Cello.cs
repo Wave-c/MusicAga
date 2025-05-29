@@ -12,7 +12,7 @@ namespace MusicAga.Models.SoundSources.Categories.StringsCategory
         public bool HousseInclude { get; set; }
         public bool IncludeBow { get; set; }
 
-        public Cello(bool massiveTop, bool housseInclude, bool includeBow, string body, string fretbboard, string name, string brand, decimal price, string type, int year) : base(body, fretbboard, name, brand, price, type, year)
+        public Cello(bool massiveTop, bool housseInclude, bool includeBow, string body, string fretbboard, string name, string brand, decimal price, string type, int year, string sourceType, string pickupType) : base(body, fretbboard, name, brand, price, type, year, sourceType, pickupType)
         {
             MassiveTop = massiveTop;
             HousseInclude = housseInclude;

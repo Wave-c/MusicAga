@@ -8,7 +8,7 @@ namespace MusicAga.Models.SoundSources.Categories
 {
     public abstract class Strings : SoundSource
     {
-        protected Strings(string body, string fretbboard, string name, string brand, decimal price, string type, int year) : base(name, brand, price, type, year)
+        protected Strings(string body, string fretbboard, string name, string brand, decimal price, string type, int year, string sourceType, string pickupType) : base(name, brand, price, type, year, sourceType, pickupType)
         {
             Body = body;
             Fretbboard = fretbboard;
