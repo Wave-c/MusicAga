@@ -20,7 +20,6 @@ namespace MusicAga.Models.SoundSources.Categories.StringsCategory
             FineTuningScrewForEString = fineTuningScreForEString;
         }
 
-        public Violin() { }
 
         public override string ToString()
         {
