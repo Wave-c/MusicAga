@@ -189,6 +189,35 @@ namespace MusicAga.Crud
             {
                 Console.WriteLine("Enter card id that you intrested in: ");
                 Guid userCardId = new Guid(Console.ReadLine());
+                var gettedDevice = _entityService.GetById(userCardId);
+                switch (gettedDevice.Type)
+                {
+                    case "ElectricGuitar":
+                        Console.WriteLine((gettedDevice as ElectricGuitar).ToString());
+                        break;
+                    case "Cello":
+                        Console.WriteLine((gettedDevice as Cello).ToString());
+                        break;
+                    case "Violin":
+                        Console.WriteLine((gettedDevice as Violin).ToString());
+                        break;
+                    case "Mixer":
+                        Console.WriteLine((gettedDevice as Mixer).ToString());
+                        break;
+                    case "AudioInterface":
+                        Console.WriteLine((gettedDevice as AudioInterface).ToString());
+                        break;
+                    case "Accessory":
+                        Console.WriteLine((gettedDevice as Accessory).ToString());
+                        break;
+                    case "Headphone":
+                        Console.WriteLine((gettedDevice as Headphone).ToString());
+                        break;
+                    case "Microphone":
+                        Console.WriteLine((gettedDevice as Microphone).ToString());
+                        break;
+                }
+                Console.ReadKey();
             }
         }
 

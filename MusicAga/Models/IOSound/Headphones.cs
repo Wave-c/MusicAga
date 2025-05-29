@@ -22,7 +22,7 @@ namespace MusicAga.Models.IOSound
 
         public override string ToString()
         {
-            return "Headphone: " + Impedance + " " + Type;
+            return "Headphone: " + base.ToString() + Impedance + " " + Type;
         }
     }
 }

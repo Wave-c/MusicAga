@@ -65,9 +65,9 @@ namespace MusicAga.Services
             return result;
         }
     
-        public void GetById<T>(Guid id)
+        public AudioDevice GetById(Guid id)
         {
-            Console.WriteLine(typeof(T));
+            return GetAll().Find(x => x.Id == id);
         }
     }
 }

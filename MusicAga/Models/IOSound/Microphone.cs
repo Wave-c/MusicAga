@@ -22,7 +22,7 @@ namespace MusicAga.Models.IOSound
 
         public override string ToString()
         {
-            return "Microphone: " + FrequencyResponse + " " + PolarPattern;
+            return "Microphone: " + base.ToString() + FrequencyResponse + " " + PolarPattern;
         }
     }
 }
