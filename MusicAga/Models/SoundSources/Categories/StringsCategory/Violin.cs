@@ -12,7 +12,7 @@ namespace MusicAga.Models.SoundSources.Categories.StringsCategory
         public bool FineTuners { get; set; }
         public bool FlamedBack { get; set; }
         public bool FineTuningScrewForEString { get; set; }
-        public Violin(bool includeBow, bool fineTuners, bool flamedBack, bool fineTuningScreForEString, string body, string fretbboard, string name, string brand, decimal price, string type, int year, string sourceType, string pickupType) : base(body, fretbboard, name, brand, price, type, year, sourceType, pickupType)
+        public Violin(bool includeBow, bool fineTuners, bool flamedBack, bool fineTuningScreForEString, string body, string fretbboard, string name, string brand, decimal price, string type, int year, string pickupType) : base(body, fretbboard, name, brand, price, type, year, "Acoustic", pickupType)
         {
             IncludeBow = includeBow;
             FineTuners = fineTuners;

@@ -1,4 +1,10 @@
-﻿using System;
+﻿using MusicAga.Models;
+using MusicAga.Models.Accessories;
+using MusicAga.Models.Equipment;
+using MusicAga.Models.IOSound;
+using MusicAga.Models.SoundSources.Categories.StringsCategory;
+using MusicAga.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +14,12 @@ namespace MusicAga.Crud
 {
     internal class CrudUI : ICrudUI
     {
+        private EntityService _entityService = new EntityService();
+
         public void Create()
         {
+            string body; string fretbboard; string pickupType;
+
             Console.WriteLine("Enter model name: ");
             string userSubjectName = Console.ReadLine();
 
@@ -44,9 +54,28 @@ namespace MusicAga.Crud
                     Console.WriteLine("Enter tremolo type: ");
                     string tremoloType = Console.ReadLine();
 
+                    Console.WriteLine("Enter body material: ");
+                    body = Console.ReadLine();
+
+                    Console.WriteLine("Enter fretbboard type: ");
+                    fretbboard = Console.ReadLine();
+
+                    Console.WriteLine("Enter pickup type: ");
+                    pickupType = Console.ReadLine();
+
+                    _entityService.Add(new ElectricGuitar(neckType, fretsCount, scale, tremoloType, body, fretbboard, userSubjectName, userSubjectBrand, userSubjectPrice, "ElectricGuitar", userSubjectCreationYear, pickupSystemType));
                     break;
 
                 case 2:
+                    Console.WriteLine("Enter body material: ");
+                    body = Console.ReadLine();
+
+                    Console.WriteLine("Enter fretbboard type: ");
+                    fretbboard = Console.ReadLine();
+
+                    Console.WriteLine("Enter pickup type: ");
+                    pickupType = Console.ReadLine();
+
                     Console.WriteLine("Enter massive top presence status: ");
                     bool massiveTopPresence = Convert.ToBoolean(Console.ReadLine());
 
@@ -56,9 +85,19 @@ namespace MusicAga.Crud
                     Console.WriteLine("Enter bow presence status: ");
                     bool celloBowPresence = Convert.ToBoolean(Console.ReadLine());
 
+                    _entityService.Add(new Cello(massiveTopPresence, houssePresence, celloBowPresence, body, fretbboard, userSubjectName, userSubjectBrand, userSubjectPrice, "Cello", userSubjectCreationYear, pickupType));
                     break;
 
                 case 3:
+                    Console.WriteLine("Enter body material: ");
+                    body = Console.ReadLine();
+
+                    Console.WriteLine("Enter fretbboard type: ");
+                    fretbboard = Console.ReadLine();
+
+                    Console.WriteLine("Enter pickup type: ");
+                    pickupType = Console.ReadLine();
+
                     Console.WriteLine("Enter bow presence status: ");
                     bool violinBowPresence = Convert.ToBoolean(Console.ReadLine());
 
@@ -71,6 +110,7 @@ namespace MusicAga.Crud
                     Console.WriteLine("Enter tuning screw for Estring presence status: ");
                     bool fineTuningScrewForEStringPresence = Convert.ToBoolean(Console.ReadLine());
 
+                    _entityService.Add(new Violin(violinBowPresence, fineTunnersPresence, flamedBackPresence, fineTuningScrewForEStringPresence, body, fretbboard, userSubjectName, userSubjectBrand, userSubjectPrice, "Violin", userSubjectCreationYear, pickupType));
                     break;
 
                 case 4:
@@ -80,6 +120,7 @@ namespace MusicAga.Crud
                     Console.WriteLine("Enter effects presence status: ");
                     bool effectsPresence = Convert.ToBoolean(Console.ReadLine());
 
+                    _entityService.Add(new Mixer(userSubjectName, userSubjectBrand, userSubjectPrice, "Mixer", userSubjectCreationYear, channelsCount, effectsPresence));
                     break;
 
                 case 5:
@@ -92,6 +133,7 @@ namespace MusicAga.Crud
                     Console.WriteLine("Enter connectivity type: ");
                     string connectivityType = Console.ReadLine();
 
+                    _entityService.Add(new AudioInterface(userSubjectName, userSubjectBrand, userSubjectPrice, "AudioInterface", userSubjectCreationYear, inputChannelsCount, outputChannelsCount, connectivityType));
                     break;
 
                 case 6:
@@ -101,6 +143,7 @@ namespace MusicAga.Crud
                     Console.WriteLine("Enter material type: ");
                     string materialType = Console.ReadLine();
 
+                    _entityService.Add(new Accessory(userSubjectName, userSubjectBrand, userSubjectPrice, "Accessory", userSubjectCreationYear, materialType, typeOfAccessory));
                     break;
 
                 case 7:
@@ -110,6 +153,7 @@ namespace MusicAga.Crud
                     Console.WriteLine("Enter impedance type: ");
                     string impedanceType = Console.ReadLine();
 
+                    _entityService.Add(new Headphone(userSubjectName, userSubjectBrand, userSubjectPrice, "Headphone", userSubjectCreationYear, impedanceType, headphonesType));
                     break;
 
                 case 8:
@@ -119,6 +163,7 @@ namespace MusicAga.Crud
                     Console.WriteLine("Enter polar Pattern type: ");
                     string polarPatternType = Console.ReadLine();
 
+                    _entityService.Add(new Microphone(userSubjectName, userSubjectBrand, userSubjectPrice, "Microphone", userSubjectCreationYear, frequencyResponseType, polarPatternType));
                     break;
 
                 default:

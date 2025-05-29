@@ -9,24 +9,22 @@ namespace MusicAga.Models.SoundSources.Categories.StringsCategory
 {
     internal class ElectricGuitar : Strings
     {
-        public ElectricGuitar(string neck, uint frets, string pickupSystem, uint scaleMM, string tremolo, string body, string fretbboard, string name, string brand, decimal price, string type, int year, string sourceType, string pickupType) : base(body, fretbboard, name, brand, price, type, year, sourceType, pickupType)
+        public ElectricGuitar(string neck, uint frets, uint scaleMM, string tremolo, string body, string fretbboard, string name, string brand, decimal price, string type, int year, string pickupType) : base(body, fretbboard, name, brand, price, type, year, "Electric", pickupType)
         {
             Neck = neck;
             Frets = frets;
-            PickupSystem = pickupSystem;
             ScaleMM = scaleMM;
             Tremolo = tremolo;
         }
 
         public string Neck { get; set; }
         public uint Frets { get; set; }
-        public string PickupSystem { get; set; }
         public uint ScaleMM { get; set; }
         public string Tremolo { get; set; }
 
         public override string ToString()
         {
-            return "Electro guitar: " + Neck + " " + Frets + " " + PickupSystem + " " + ScaleMM + " " + Tremolo;
+            return "Electro guitar: " + Neck + " " + Frets + " " + ScaleMM + " " + Tremolo;
         }  
 
     }

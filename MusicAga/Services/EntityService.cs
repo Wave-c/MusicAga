@@ -8,7 +8,7 @@ namespace MusicAga.Services
 {
     internal class EntityService
     {
-        public void Add()
+        public void Add<T>(T entity)
         {
 
         }
