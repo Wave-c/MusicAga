@@ -51,6 +51,10 @@ namespace MusicAga.Crud
 
 		public void Create()
 		{
+            while(true)
+            {
+                try
+                {
             Console.Clear();
 
             Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -229,63 +233,74 @@ namespace MusicAga.Crud
 
         public void Delete()
 		{
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("DELETE MENU\n");
-            Console.ResetColor();
-
-            Console.WriteLine("1. Electro guitar");
-            Console.WriteLine("2. Cello");
-            Console.WriteLine("3. Violin");
-            Console.WriteLine("4. Mixer");
-            Console.WriteLine("5. Audio interface");
-            Console.WriteLine("6. Accesories");
-            Console.WriteLine("7. Headphones");
-            Console.WriteLine("8. Microphones\n");
-
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("0. Exit\n");
-            Console.ResetColor();
-
-
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.Write("Category: ");
-            Console.ResetColor();
-
-            short userChoice = Convert.ToInt16(Console.ReadLine());
-
-            printCategory(userChoice);
-            
-
-            Console.Write("Enter ID: ");
-            Guid id = new Guid(Console.ReadLine());
-
             while (true)
             {
-                Console.Clear();
-                Console.WriteLine($"Card ID: {id}\nName: {_entityService.GetById(id).Name}\n");
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("Confirm deletion? [y/n] > ");
-                Console.ResetColor();
+                try
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    Console.WriteLine("DELETE MENU\n");
+                    Console.ResetColor();
 
-                string EnterDelete = Console.ReadLine();
-                Console.Clear();
+                    Console.WriteLine("1. Electro guitar");
+                    Console.WriteLine("2. Cello");
+                    Console.WriteLine("3. Violin");
+                    Console.WriteLine("4. Mixer");
+                    Console.WriteLine("5. Audio interface");
+                    Console.WriteLine("6. Accesories");
+                    Console.WriteLine("7. Headphones");
+                    Console.WriteLine("8. Microphones\n");
 
-                if (EnterDelete == "y")
-                {
-                    _entityService.DeleteById(id);
-                    break;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("0. Exit\n");
+                    Console.ResetColor();
+
+
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.Write("Category: ");
+                    Console.ResetColor();
+
+                    short userChoice = Convert.ToInt16(Console.ReadLine());
+
+                    printCategory(userChoice);
+
+
+                    Console.Write("Enter ID: ");
+                    Guid id = new Guid(Console.ReadLine());
+
+                    while (true)
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"Card ID: {id}\nName: {_entityService.GetById(id).Name}\n");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("Confirm deletion? [y/n] > ");
+                        Console.ResetColor();
+
+                        string EnterDelete = Console.ReadLine();
+                        Console.Clear();
+
+                        if (EnterDelete == "y")
+                        {
+                            _entityService.DeleteById(id);
+                            break;
+                        }
+                        else if (EnterDelete == "n")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
                 }
-                else if (EnterDelete == "n")
+                catch (FormatException e)
                 {
-                    break;
-                }
-                else
-                {
+                    Console.WriteLine(e);
                     continue;
                 }
             }
-        }
+            }
 
 		public void Read()
 		{
@@ -311,8 +326,22 @@ namespace MusicAga.Crud
                     Console.Write("\nEnter card ID that you intrested in: ");
                     Console.ResetColor();
 
-                    Guid userCardId = new Guid(Console.ReadLine());
-                    Console.WriteLine();
+                    Guid userCardId;
+
+                    while (true)
+                    {
+                        try
+                        {
+                            userCardId = new Guid(Console.ReadLine());
+                            Console.WriteLine();
+                            break;
+                        }
+                        catch (FormatException e)
+                        {
+                            Console.WriteLine(e);
+                            continue;
+                        }
+                    }
 
                     var gettedDevice = _entityService.GetById(userCardId);
                     switch (gettedDevice.Type)
@@ -379,12 +408,27 @@ namespace MusicAga.Crud
 
             short userChoice = Convert.ToInt16(Console.ReadLine());
 
+            if(userChoice == 0)
+            {
+                return;
+            }
+
             printCategory(userChoice);
 
-            Console.Write("Enter ID: ");
-            Guid id = new Guid(Console.ReadLine());
+            Guid id;
 
-            string changeAgain = "y";
+            while (true)
+            {
+                try
+                {
+                    Console.Write("Enter ID: ");
+                    id = new Guid(Console.ReadLine());
+                    
+                
+
+
+
+                string changeAgain = "y";
 
             switch (userChoice)
             {
@@ -875,6 +919,15 @@ namespace MusicAga.Crud
                 default:
                     break;
             }
+                    break;
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine(e);
+                    continue;
+                }
+            }
         }
+
 	}
 }
