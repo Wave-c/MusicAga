@@ -928,6 +928,7 @@ namespace MusicAga.Crud
                     continue;
                 }
             }
+            CustomFileLogger.GetLogger().Log($"Entity {id} delete", LogLevel.Debug);
         }
 
 	}
