@@ -1,4 +1,5 @@
-﻿using MusicAga.Models.Accessories;
+﻿using MusicAga.Logger;
+using MusicAga.Models.Accessories;
 using MusicAga.Models.Equipment;
 using MusicAga.Models.IOSound;
 using MusicAga.Models.SoundSources.Categories.StringsCategory;
@@ -63,18 +64,21 @@ namespace MusicAga.Models
         public static AppDbContext LoadContext(List<ElectricGuitar> electricGuitars, List<Cello> cellos, List<Violin> violins, List<Mixer> mixers, List<AudioInterface> audioInterfaces, List<Accessory> accessories, List<Headphone> headphones, List<Microphone> microphones)
         {
             instance = new AppDbContext(electricGuitars, cellos, violins, mixers, audioInterfaces, accessories, headphones, microphones);
+            CustomFileLogger.GetLogger().Log("Load context from file", logLevel: LogLevel.Debug);
             return instance;
         }
 
         public static AppDbContext LoadContext(AppDbContext context)
         {
             instance = context;
+            CustomFileLogger.GetLogger().Log("Load context from file", logLevel: LogLevel.Debug);
             return instance;
         }
 
         public void SaveContext()
         {
             File.WriteAllText("data.json", JsonSerializer.Serialize(instance));
+            CustomFileLogger.GetLogger().Log("Save context in file", logLevel: LogLevel.Debug);
         }
     }
 }

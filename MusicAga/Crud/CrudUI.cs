@@ -1,4 +1,5 @@
-﻿using MusicAga.Models;
+﻿using MusicAga.Logger;
+using MusicAga.Models;
 using MusicAga.Models.Accessories;
 using MusicAga.Models.Equipment;
 using MusicAga.Models.IOSound;
@@ -844,6 +845,8 @@ namespace MusicAga.Crud
                 default:
                     break;
             }
+
+            CustomFileLogger.GetLogger().Log($"Entity {id} delete", LogLevel.Debug);
         }
 	}
 }

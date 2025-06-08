@@ -1,4 +1,5 @@
-﻿using MusicAga.Models;
+﻿using MusicAga.Logger;
+using MusicAga.Models;
 using MusicAga.Models.Accessories;
 using MusicAga.Models.Equipment;
 using MusicAga.Models.IOSound;
@@ -13,6 +14,8 @@ namespace MusicAga.Services
 {
     internal class EntityService
     {
+        private readonly CustomFileLogger _logger = CustomFileLogger.GetLogger();
+
         public void Add(AudioDevice entity)
         {
             switch (entity.Type)
@@ -42,6 +45,7 @@ namespace MusicAga.Services
                     AppDbContext.GetContext().microphones.Add((Microphone)entity);
                     break;
             }
+            _logger.Log($"Entity {entity.Id} add", LogLevel.Debug);
         }
 
         public void DeleteById(Guid id)
@@ -73,7 +77,11 @@ namespace MusicAga.Services
                 case "Microphone":
                     AppDbContext.GetContext().microphones.Remove((Microphone)deletedEntity);
                     break;
+                default:
+                    _logger.Log($"Entity {id} not found", LogLevel.Warn);
+                    return;
             }
+            _logger.Log($"Entity {id} delete", LogLevel.Debug);
         }
 
         public List<AudioDevice> GetAll()

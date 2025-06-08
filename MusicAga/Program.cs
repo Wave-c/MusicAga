@@ -1,4 +1,5 @@
-﻿using MusicAga.Models;
+﻿using MusicAga.Logger;
+using MusicAga.Models;
 
 namespace MusicAga
 {
@@ -6,6 +7,7 @@ namespace MusicAga
     {
         static void Main(string[] args)
         {
+            CustomFileLogger.GetLogger().Log("App start", LogLevel.Info);
             MainMenu.HandleMainMenu();
         }
     }
